@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>سكند هاند سودان</title>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#198754">
 <link href="https://fonts.googleapis.com/css2?family=Changa:wght@600;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#EEF3F2;--card:#fff;--ink:#12272C;--mute:#5B6F73;--brand:#0F4C5C;--brand-ink:#fff;--gold:#E0A100;--line:#D5E0DF;--wa:#1FA855}
@@ -484,5 +486,19 @@ openAd=function(id){
 (async function(){try{var s=await sb.auth.getSession();sbUser=s.data.session?s.data.session.user:null;if(sbUser){var p=await sb.from('profiles').select('*').eq('id',sbUser.id).maybeSingle();setMe(p.data)}}catch(e){}await loadAds()})();
 render();
 </script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(registration => {
+          console.log('ServiceWorker registered!');
+        })
+        .catch(err => {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+</script>
+  
 </body>
 </html>
